@@ -1,0 +1,29 @@
+.card{
+    
+    border: 0.1rem #c0c0c000 solid;
+    background-color: rgb(196, 255, 198);
+    border-radius:1rem;
+    margin: 1rem;
+  }
+
+  img{
+    border-radius: 0.5rem;
+  }
+
+  img.medium{
+    max-width: 29rem;
+    width: 100%;
+  }
+
+  .card-body{
+    padding: 1rem;
+  }
+
+  
+  
+  .card-body > *{
+    margin-bottom: 0.5rem;
+  }
+
+
+  
