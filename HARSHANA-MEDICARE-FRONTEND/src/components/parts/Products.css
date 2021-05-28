@@ -1,13 +1,24 @@
-.card{
+.profile-card{
     
     border: 0.1rem #c0c0c000 solid;
     background-color: rgb(196, 255, 198);
     border-radius:1rem;
-    margin: 1rem;
+    margin: 10px auto;
+    max-width: 300px;
+    background-color: #fff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+
   }
 
-  img{
+  .profile-card img{
     border-radius: 0.5rem;
+    transition: all linear 0.25s;
+
   }
 
   img.medium{
@@ -17,6 +28,29 @@
 
   .card-body{
     padding: 1rem;
+  }
+
+  .profile-card .card-body-name{
+    position: absolute;
+    left: 30px;
+    bottom: 70px;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    transition: all linear 0.25s;
+    padding-bottom: 30px;
+    
+  }
+
+  .profile-card .price{
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    color: black;
+    font-size: 15px;
+    transition: all linear 0.25s;
+    
   }
 
   
