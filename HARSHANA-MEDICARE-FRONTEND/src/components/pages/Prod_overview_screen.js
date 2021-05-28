@@ -16,6 +16,7 @@ export default class ProductOverviewScreen extends Component {
 
   componentDidMount() {
     console.log(this.props);
+    console.log(this.state);
 
     if (this.props.match.params.id) {
       if (
@@ -94,16 +95,20 @@ export default class ProductOverviewScreen extends Component {
                       </div>
                     </div>
                   </li>
-                  {this.state.loadedProducts.countInStoc > 0 && (
+                  {
+                      this.state.loadedProducts.countInStock > 0 &&
+                  (
                     <>
                       <li>
                         <div className="row">
                           <div>Qty</div>
                           <div>
                             <select
+                              className="form-control"  
                               value={this.state.qty}
                               onChange={(event)=> this.setState({ qty : parseInt(event.target.value)})}
                             >
+                                <option>Select</option>
                               {[
                                 ...Array(
                                   this.state.loadedProducts.countInStock
