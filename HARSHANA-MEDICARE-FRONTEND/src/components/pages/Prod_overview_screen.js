@@ -52,7 +52,7 @@ export default class ProductOverviewScreen extends Component {
     if (this.state.loadedProducts) {
       prodOverview = (
         <div className="product-overviewer">
-          <Link to="/products">Back to products</Link>
+          <Link to="/products" style={{textDecoration : "none", fontSize:"25px"}}>Back to products</Link>
           <div className="row top">
             <div className="col-2">
               <img
@@ -64,7 +64,7 @@ export default class ProductOverviewScreen extends Component {
             <div className="col-1">
               <ul>
                 <li>
-                  <h1>{this.state.loadedProducts.name}</h1>
+                  <h1 style={{textAlign : "left"}}>{this.state.loadedProducts.name}</h1>
                 </li>
                 <li>Price : ${this.state.loadedProducts.price}</li>
                 <li>
