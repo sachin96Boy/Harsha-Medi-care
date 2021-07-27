@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 
 import Home from './components/pages/Home';
 import Services from './components/pages/Services';
+import CartScreen from './components/pages/CartScreen';
 import ProductScreen from './components/pages/ProductsScreen';
 import SignUp from './components/pages/SignUp';
 import ProductOverviewScreen from './components/pages/Prod_overview_screen';
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
          
+          <Route path='/cart/:id' component={CartScreen} />
           <Route path='/products' component={ProductScreen} />
           <Route path='/product/:id' component={ProductOverviewScreen} />
           <Route path='/sign-up' component={SignUp} />
