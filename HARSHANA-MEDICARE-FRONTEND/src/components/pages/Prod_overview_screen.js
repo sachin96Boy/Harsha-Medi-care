@@ -5,14 +5,10 @@ import React, { Component } from "react";
 import "../../App.css";
 
 export default class ProductOverviewScreen extends Component {
-
-
   state = {
     loadedProducts: null,
     qty: 0,
   };
-
-
 
   componentDidMount() {
     console.log(this.props);
@@ -52,7 +48,12 @@ export default class ProductOverviewScreen extends Component {
     if (this.state.loadedProducts) {
       prodOverview = (
         <div className="product-overviewer">
-          <Link to="/products" style={{textDecoration : "none", fontSize:"25px"}}>Back to products</Link>
+          <Link
+            to="/products"
+            style={{ textDecoration: "none", fontSize: "25px" }}
+          >
+            Back to products
+          </Link>
           <div className="row top">
             <div className="col-2">
               <img
@@ -64,7 +65,9 @@ export default class ProductOverviewScreen extends Component {
             <div className="col-1">
               <ul>
                 <li>
-                  <h1 style={{textAlign : "left"}}>{this.state.loadedProducts.name}</h1>
+                  <h1 style={{ textAlign: "left" }}>
+                    {this.state.loadedProducts.name}
+                  </h1>
                 </li>
                 <li>Price : ${this.state.loadedProducts.price}</li>
                 <li>
@@ -95,20 +98,22 @@ export default class ProductOverviewScreen extends Component {
                       </div>
                     </div>
                   </li>
-                  {
-                      this.state.loadedProducts.countInStock > 0 &&
-                  (
+                  {this.state.loadedProducts.countInStock > 0 && (
                     <>
                       <li>
                         <div className="row">
                           <div>Qty</div>
                           <div>
                             <select
-                              className="form-control"  
+                              className="form-control"
                               value={this.state.qty}
-                              onChange={(event)=> this.setState({ qty : parseInt(event.target.value)})}
+                              onChange={(event) =>
+                                this.setState({
+                                  qty: parseInt(event.target.value),
+                                })
+                              }
                             >
-                                <option>Select</option>
+                              <option>Select</option>
                               {[
                                 ...Array(
                                   this.state.loadedProducts.countInStock

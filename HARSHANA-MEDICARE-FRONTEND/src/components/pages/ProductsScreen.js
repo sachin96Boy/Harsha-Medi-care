@@ -11,6 +11,8 @@ class ProductScreen extends Component {
     products: [],
   };
 
+  
+
   componentDidMount() {
     console.log("[screen:product.js] componentDidMount");
 
