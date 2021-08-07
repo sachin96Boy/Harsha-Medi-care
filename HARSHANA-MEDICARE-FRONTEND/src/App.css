@@ -169,7 +169,6 @@
   align-content: start;
   align-items: start;
   box-sizing: border-box;
-  
   place-content: start;
   place-items: center stretch;
 }
@@ -182,7 +181,6 @@
   list-style-type: none;
   height: 200px;
   vertical-align: middle;
-
   border: 1px solid green;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -190,6 +188,22 @@
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   overflow: hidden;
+}
+
+.wrapimage {
+  float: left;
+  border-right: 1px solid green;
+  margin: 0px 24px 0px 0px;
+  transition: all 0.2s linear;
+}
+
+
+.wrapimage:hover {
+  transform: scale(1.1);
+}
+
+.wrapheading {
+  padding: 24px;
 }
 
 .testR {
