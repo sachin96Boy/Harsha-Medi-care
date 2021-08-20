@@ -1,14 +1,18 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function ServiceCardL(props){
 	return (
     	<>
       		<li className='testL'>
-      			<br />
-        		<br />
-        		<br />
-        		<h1>{props.text1}<br />{props.text2}</h1>
+      			<div className='wrapimage'>
+      				<img src={props.url} alt={props.text}  width='250px' height='200px' />
+      				
+      			</div>
+      			<div className='wrapheading'>
+      				<br />
+      				<br />
+   		   			<h2>{props.heading}</h2>
+      			</div>
       		</li>
       		<br />
     	</>
