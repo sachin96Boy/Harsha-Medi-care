@@ -1,5 +1,13 @@
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
+import { productDetailsReducer, productListReducer } from './store/reducres/ProductReducer';
 
-const store = createStore();
+const initialState = {};
+
+const reducers = combineReducers({
+    productList:productListReducer,
+    productDetails:productDetailsReducer
+})
+
+const store = createStore(reducers,initialState);
 
 export default store;
