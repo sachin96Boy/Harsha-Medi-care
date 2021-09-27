@@ -1,54 +1,61 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-import React, { Component } from "react";
-
-
+import React, { useState, useEffect } from "react";
 
 import "../../App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { detailsProduct } from "../../store/actions/productActions";
 
-export default class ProductOverviewScreen extends Component {
-  state = {
-    loadedProducts: null,
-    qty: 0,
-  };
+export default function ProductOverviewScreen(props) {
+  const dispatch = useDispatch();
+  const productID = props.match.params.id;
 
-  componentDidMount() {
-    console.log(this.props);
-    console.log(this.state);
+  const [qty, setQty] = useState(1);
 
-    if (this.props.match.params.id) {
-      if (
-        !this.state.loadedProducts ||
-        this.state.loadedProducts.id !== this.props.match.params.id
-      ) {
-        axios
-          .get(
-            "http://localhost:5000/api/products/" + this.props.match.params.id
-          )
-          .then((response) => {
-            console.log(response);
-            this.setState({
-              loadedProducts: response.data,
-            });
-          });
-      }
-    }
-  }
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, product } = productDetails;
 
-  setnewCount(mynewvalue) {
-    console.log("vlaue change function");
-    return mynewvalue;
-  }
+  useEffect(() => {
+    dispatch(detailsProduct(productID));
+  }, [dispatch, productID]);
 
-  addToCartHandler = () => {
+  // componentDidMount() {
+  //   console.log(this.props);
+  //   console.log(this.state);
+
+  //   if (this.props.match.params.id) {
+  //     if (
+  //       !this.state.loadedProducts ||
+  //       this.state.loadedProducts.id !== this.props.match.params.id
+  //     ) {
+  //       axios
+  //         .get(
+  //           "http://localhost:5000/api/products/" + this.props.match.params.id
+  //         )
+  //         .then((response) => {
+  //           console.log(response);
+  //           this.setState({
+  //             loadedProducts: response.data,
+  //           });
+  //         });
+  //     }
+  //   }
+  // }
+
+  // setnewCount(mynewvalue) {
+  //   console.log("vlaue change function");
+  //   return mynewvalue;
+  // }
+
+  const addToCartHandler = () => {
     console.log("add to cartHandler");
   };
 
-  render() {
-    let prodOverview = <p style={{ textAlign: "center" }}>please wait</p>;
-
-    if (this.state.loadedProducts) {
-      prodOverview = (
+  return (
+    <>
+      {loading ? (
+        <h1>Please wait</h1>
+      ) : (
         <div className="product-overviewer">
           <Link
             to="/products"
@@ -60,20 +67,18 @@ export default class ProductOverviewScreen extends Component {
             <div className="col-2">
               <img
                 className="product-image"
-                src={this.state.loadedProducts.image}
-                alt="health product"
+                src={product.image}
+                alt={product.name}
               ></img>
             </div>
             <div className="col-1">
               <ul>
                 <li>
-                  <h1 style={{ textAlign: "left" }}>
-                    {this.state.loadedProducts.name}
-                  </h1>
+                  <h1 style={{ textAlign: "left" }}>{product.name}</h1>
                 </li>
-                <li>Price : ${this.state.loadedProducts.price}</li>
+                <li>Price : ${product.price}</li>
                 <li>
-                  Description : <p>{this.state.loadedProducts.description}</p>
+                  Description : <p>{product.description}</p>
                 </li>
               </ul>
             </div>
@@ -83,16 +88,14 @@ export default class ProductOverviewScreen extends Component {
                   <li>
                     <div className="row">
                       <div>Price</div>
-                      <div className="price">
-                        ${this.state.loadedProducts.price}
-                      </div>
+                      <div className="price">${product.price}</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
                       <div>Status</div>
                       <div>
-                        {this.state.loadedProducts.countInStock > 0 ? (
+                        {product.countInStock > 0 ? (
                           <span className="success">In Stock</span>
                         ) : (
                           <span className="error"> out of Stock</span>
@@ -100,7 +103,7 @@ export default class ProductOverviewScreen extends Component {
                       </div>
                     </div>
                   </li>
-                  {this.state.loadedProducts.countInStock > 0 && (
+                  {product.countInStock > 0 && (
                     <>
                       <li>
                         <div className="row">
@@ -108,23 +111,17 @@ export default class ProductOverviewScreen extends Component {
                           <div>
                             <select
                               className="form-control"
-                              value={this.state.qty}
-                              onChange={(event) =>
-                                this.setState({
-                                  qty: parseInt(event.target.value),
-                                })
-                              }
+                              value={qty}
+                              onChange={(event) => setQty(event.target.value)}
                             >
                               <option>Select</option>
-                              {[
-                                ...Array(
-                                  this.state.loadedProducts.countInStock
-                                ).keys(),
-                              ].map((x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              ))}
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                )
+                              )}
                             </select>
                           </div>
                         </div>
@@ -132,7 +129,7 @@ export default class ProductOverviewScreen extends Component {
                       <li>
                         <button
                           className="primary block"
-                          onClick={this.addToCartHandler}
+                          onClick={addToCartHandler}
                         >
                           Add to cart
                         </button>
@@ -144,8 +141,7 @@ export default class ProductOverviewScreen extends Component {
             </div>
           </div>
         </div>
-      );
-    }
-    return <div>{prodOverview}</div>;
-  }
+      )}
+    </>
+  );
 }

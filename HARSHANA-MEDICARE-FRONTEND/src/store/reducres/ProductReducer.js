@@ -9,15 +9,15 @@ import {
 
 export const productListReducer = (
     state={loading:true, products:[]},
-    actions
+    action
     )=> {
-        switch(actions.type){
+        switch(action.type){
             case PRODUCT_LIST_REQUEST:
                 return{loading:true};
             case PRODUCT_LIST_SUCCESS:
-                return{loading:false, products:actions.payload};
+                return{loading:false, products:action.payload};
             case PRODUCT_LIST_FAIL:
-                return{loading:false, products:actions.payload};
+                return{loading:false, products:action.payload};
             default:
                 return state;            
         }
@@ -26,15 +26,15 @@ export const productListReducer = (
 
 export const productDetailsReducer = (
     state={loading:true, product:{}},
-    actions
+    action
     )=> {
-        switch(actions.type){
+        switch(action.type){
             case PRODUCT_DETAILS_REQUEST:
                 return{loading:true};
             case PRODUCT_DETAILS_SUCCESS:
-                return{loading:false, product:actions.payload};
+                return{loading:false, product:action.payload};
             case PRODUCT_DETAILS_FAIL:
-                return{loading:false, product:actions.payload};
+                return{loading:false, product:action.payload};
             default:
                 return state;            
         }
