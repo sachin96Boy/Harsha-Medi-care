@@ -10,6 +10,7 @@ import SignUp from "./components/pages/SignUp";
 import ProductOverviewScreen from "./components/pages/Prod_overview_screen";
 
 import "./App.css";
+import LoginPage from "./components/pages/loginPage-reg/LoginPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
 
           <Route path="/products" component={ProductScreen} />
           <Route path="/product/:id" component={ProductOverviewScreen} />
-          <Route path="/sign-up" component={SignUp} />
+          <Route path="/sign-up" component={LoginPage} />
         </Switch>
       </Router>
     </>
