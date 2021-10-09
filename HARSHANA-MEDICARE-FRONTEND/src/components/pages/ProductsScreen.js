@@ -1,38 +1,34 @@
-import React, { Component } from "react";
-import axios from "axios";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Loader";
 import Product from "../parts/Products";
+import { listProducts } from "../../store/actions/productActions";
 
 import "../../App.css";
 import "../parts/Products.css";
 
-class ProductScreen extends Component {
-  state = {
-    products: [],
-  };
+function ProductScreen() {
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, products } = productList;
 
-  componentDidMount() {
-    console.log("[screen:product.js] componentDidMount");
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
 
-    axios.get("http://localhost:5000/api/products").then((response) => {
-      this.setState({
-        products: response.data,
-      });
-      console.log(response);
-    });
-  }
-
-  render() {
-    const products = this.state.products.map((product) => {
-      return <Product key={product._id} product={product} />;
-    });
-    return (
-      <div className="row center">
-        {/* <h5 className='products'>PRODUCTS</h5> */}
-        {products}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="row center">
+          {products.map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default ProductScreen;
