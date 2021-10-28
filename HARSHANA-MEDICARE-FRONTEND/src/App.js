@@ -12,12 +12,15 @@ import ProductOverviewScreen from "./components/pages/Prod_overview_screen";
 import "./App.css";
 import LoginPage from "./components/pages/loginPage-reg/LoginPage";
 
+import CartScreen from "./components/pages/CartScreen";
+
 function App() {
   return (
     <>
       <Router>
         <Navbar />
         <Switch>
+          <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/" exact component={Home} />
           <Route path="/services" component={Services} />
 

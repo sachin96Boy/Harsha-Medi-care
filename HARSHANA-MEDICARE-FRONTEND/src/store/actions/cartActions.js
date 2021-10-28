@@ -24,7 +24,7 @@ export const removeFromCart = (productId) => (dispatch)=> {
     try{
         dispatch({
             type:CART_REMOVE_ITEM,
-            payload:productIdf
+            payload:productId
         });
     }catch(error){
         console.log(error);

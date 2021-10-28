@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -10,6 +11,9 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -72,7 +76,19 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          {button && (
+            <Button buttonStyle="btn--outline" btnPath={`/sign-up`}>
+              SIGN UP
+            </Button>
+          )}
+          {button && (
+            <Button buttonStyle="btn--outline" btnPath={`/cart`}>
+              Cart
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Button>
+          )}
         </div>
       </nav>
     </>

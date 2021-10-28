@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../../store/actions/cartActions";
 
-export default function cartScreen(props) {
+import './CartScreen.css'
+
+export default function CartScreen(props) {
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split("=")[1])
@@ -31,7 +33,7 @@ export default function cartScreen(props) {
 
   return (
     <div className="row top">
-      <div className="col 2">
+      <div className="col-2">
         <h1>Order Section</h1>
         {cartItems.length === 0 ? (
           <h1>
