@@ -49,6 +49,7 @@ export default function ProductOverviewScreen(props) {
 
   const addToCartHandler = () => {
     console.log("add to cartHandler");
+    props.history.push(`/cart/${productId} ? qty=${qty}`);
   };
 
   return (
