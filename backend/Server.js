@@ -1,10 +1,13 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 const express = require("express");
 
 // initiate other services
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-import prodData from "./Data.js";
+// import prodData from "./Data.js";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 
@@ -19,7 +22,7 @@ dotenv.config();
 //connection established to mongodb
 mongoose.connect(
   process.env.MONGO_URL,
-//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   () => {
     console.log("connected to mongoDB");
   }

@@ -1,3 +1,6 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({

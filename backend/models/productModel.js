@@ -1,4 +1,8 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 const mongoose = require('mongoose');
+// import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema(
   {
