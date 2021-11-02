@@ -1,7 +1,24 @@
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const prodData = {
+    users:[
+        {
+            username:'sachin',
+            email:'sachin@gmail.com',
+            password: bcrypt.hashSync('Asdf1234', saltRounds),
+            isAdmin:false
+        },
+        {
+            username:'Dinoj',
+            email:'dinoj@gmail.com',
+            password: bcrypt.hashSync('dinoj1996', saltRounds),
+            isAdmin:true
+        }
+    ],
     products:[
         {
-            _id: '1',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
@@ -14,7 +31,7 @@ const prodData = {
         },
 
         {
-            _id: '2',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
@@ -27,7 +44,7 @@ const prodData = {
         },
 
         {
-            _id: '3',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
@@ -40,7 +57,7 @@ const prodData = {
         },
 
         {
-            _id: '4',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
@@ -53,7 +70,7 @@ const prodData = {
         },
 
         {
-            _id: '5',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
@@ -66,7 +83,7 @@ const prodData = {
         },
 
         {
-            _id: '6',
+            
             name: 'medical Supplies',
             category: 'Medicine_things',
             image: '/images/p_1.png',
