@@ -1,7 +1,8 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
+// import { createRequire } from 'module';
+import bcrypt from 'bcrypt';
+// const require = createRequire(import.meta.url);
 
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const prodData = {
@@ -9,13 +10,13 @@ const prodData = {
         {
             username:'sachin',
             email:'sachin@gmail.com',
-            password: bcrypt.hashSync('Asdf1234', saltRounds),
+            password: bcrypt.hashSync('Asdf1234', saltRounds).toString(),
             isAdmin:false
         },
         {
             username:'Dinoj',
             email:'dinoj@gmail.com',
-            password: bcrypt.hashSync('dinoj1996', saltRounds),
+            password: bcrypt.hashSync('dinoj1996', saltRounds).toString(),
             isAdmin:true
         }
     ],
