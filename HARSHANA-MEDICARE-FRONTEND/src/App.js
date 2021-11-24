@@ -2,17 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-
 import Home from "./components/pages/Home";
 import Services from "./components/pages/Services";
 import ProductScreen from "./components/pages/ProductsScreen";
-import SignUp from "./components/pages/SignUp";
 import ProductOverviewScreen from "./components/pages/Prod_overview_screen";
+import LoginPage from "./components/pages/loginPage-reg/LoginPage";
+import CartScreen from "./components/pages/CartScreen";
 
 import "./App.css";
-import LoginPage from "./components/pages/loginPage-reg/LoginPage";
-
-import CartScreen from "./components/pages/CartScreen";
 
 function App() {
   return (
@@ -23,7 +20,6 @@ function App() {
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/" exact component={Home} />
           <Route path="/services" component={Services} />
-
           <Route path="/products" component={ProductScreen} />
           <Route path="/product/:id" component={ProductOverviewScreen} />
           <Route path="/sign-up" component={LoginPage} />

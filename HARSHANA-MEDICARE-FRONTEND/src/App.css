@@ -163,13 +163,13 @@
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: normal;
-  justify-content: start;
+  justify-content: flex-start;
   justify-items: start;
   padding: 24px;
-  align-content: start;
-  align-items: start;
+  align-content: flex-start;
+  align-items: flex-start;
   box-sizing: border-box;
-  place-content: start;
+  place-content: flex-start;
   place-items: center stretch;
 }
 

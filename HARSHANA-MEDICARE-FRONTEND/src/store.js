@@ -1,4 +1,4 @@
-import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
   productDetailsReducer,
   productListReducer,
