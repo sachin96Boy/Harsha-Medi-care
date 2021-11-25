@@ -9,8 +9,7 @@ export default function ServiceCardL(props){
       				
       			</div>
       			<div className='wrapheading'>
-      				<br />
-      				<br />
+      				<br /><br /><br />
    		   			<h2>{props.heading}</h2>
       			</div>
       		</li>
