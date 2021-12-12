@@ -15,7 +15,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-        >
+          btnPath='#'        >
           GET STARTED
         </Button>
         
@@ -24,6 +24,7 @@ function HeroSection() {
           buttonStyle='btn--primary'
           buttonSize='btn--large'
           onClick={console.log('hey')}
+          btnPath='#'  
         >
           WATCH TRAILER <i className='far fa-play-circle' />
         </Button>

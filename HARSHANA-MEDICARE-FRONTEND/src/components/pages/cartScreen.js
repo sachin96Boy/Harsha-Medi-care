@@ -7,9 +7,12 @@ import './CartScreen.css'
 
 export default function CartScreen(props) {
   const productId = props.match.params.id;
+  console.log(productId);
   const qty = props.location.search
     ? Number(props.location.search.split("=")[1])
     : 1;
+
+    console.log(qty);
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;

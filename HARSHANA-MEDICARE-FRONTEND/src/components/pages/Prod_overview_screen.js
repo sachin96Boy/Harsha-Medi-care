@@ -18,6 +18,8 @@ export default function ProductOverviewScreen(props) {
     dispatch(detailsProduct(productID));
   }, [dispatch, productID]);
 
+  console.log(props.match.params.id);
+
   // componentDidMount() {
   //   console.log(this.props);
   //   console.log(this.state);
@@ -50,6 +52,7 @@ export default function ProductOverviewScreen(props) {
     console.log("add to cartHandler");
     props.history.push(`/cart/${productID} ? qty=${qty}`);
   };
+
 
   return (
     <>

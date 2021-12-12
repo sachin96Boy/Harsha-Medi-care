@@ -29,6 +29,11 @@
   img.large {
     width: 100%;
   }
+
+  button {
+    background-color: #c0c0c0;
+    cursor: pointer;
+  }
   .card {
     border: 0.1rem #c0c0c000 solid;
     background-color: rgb(196, 255, 198);

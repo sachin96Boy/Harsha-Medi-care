@@ -9,6 +9,7 @@ import data from "../Data.js";
 
 const productRouter = express.Router();
 
+
 // show the default product list in "/" directory
 productRouter.get(
   "/",
