@@ -10,6 +10,7 @@ import LoginPage from "./components/pages/loginPage-reg/LoginPage";
 import CartScreen from "./components/pages/CartScreen";
 
 import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/sign-up" component={LoginPage} />
           <Route path="/" exact component={Home} />
         </Switch>
+        <Footer />
       </Router>
     </>
   );
