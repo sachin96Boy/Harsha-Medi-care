@@ -1,16 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import './LoginPage.css';
+import {signin} from "../../../store/actions/userActions";
+
+import "./LoginPage.css";
 
 export default function LoginPage() {
-
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+    dispatch(signin(email,password));
+  };
 
   return (
     <div>
