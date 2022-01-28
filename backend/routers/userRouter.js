@@ -9,6 +9,7 @@ import bcrypt from "bcrypt";
 
 import User from "../models/userModel.js";
 import data from "../Data.js";
+import { generateToken } from "../Utils.js";
 
 const userRouter = express.Router();
 

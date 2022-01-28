@@ -1,33 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import './LoginPage.css'
+import './LoginPage.css';
 
 export default function LoginPage() {
-  
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
-    <div className="body1">
-      <h2>Login Form</h2>
-      <form className="form1">
-        <div className="imgcontainer">
-          <img src={"images/logo/harshLogo1.jpg"} alt={"loginLogo"} className="medicare-logo"></img>
+    <div>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div>
+          <h1>Sign In For the Store</h1>
         </div>
-
-        <div className="container1">
-          <label htmlFor="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required className="input1"/>
-
-          <label htmlFor="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required className="input1"/>
-        
-          <button type="submit" className="button1">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember" onChange={()=>console.log('changed')}/> Remember me
-          </label>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter email address"
+            required
+            onChange={(element) => setEmail(element.target.value)}
+          />
         </div>
-
-        <div className="container1">
-          <button type="button" className="cancelbtn">Cancel</button>
-          <span className="psw">Forgot <a href="#">password?</a></span>
+        <div>
+          <label htmlFor="email">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            required
+            onChange={(element) => setPassword(element.target.value)}
+          />
+        </div>
+        <div>
+          <label />
+          <button className="primary" type="submit">
+            Sign In
+          </button>
+        </div>
+        <div>
+          <label />
+          <div>
+            New Customer? <Link to="/register">Create a new Account</Link>
+          </div>
         </div>
       </form>
     </div>
