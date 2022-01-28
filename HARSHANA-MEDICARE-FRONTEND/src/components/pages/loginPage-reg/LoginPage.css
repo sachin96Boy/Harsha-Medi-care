@@ -33,18 +33,18 @@ button.block {
   width: 100%;
 }
 
-.form {
+.login-form {
   max-width: 60rem;
   margin: 0 auto;
 }
 
-.form > div {
+.login-form > div {
   display: flex;
   flex-direction: column;
   margin: 1rem;
 }
 
-.form label {
+.login-form label {
   margin: 1rem 0;
   display: block;
 }
