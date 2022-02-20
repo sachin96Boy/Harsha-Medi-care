@@ -29,7 +29,7 @@ userRouter.post(
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
-          username: user.name,
+          username: user.username,
           email: user.email,
           isAdmin: user.isAdmin,
           token: generateToken(user),

@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../../store/actions/cartActions";
 
-import './CartScreen.css'
+import "./CartScreen.css";
 
 export default function CartScreen(props) {
   const productId = props.match.params.id;
+
   console.log(productId);
+  
   const qty = props.location.search
     ? Number(props.location.search.split("=")[1])
     : 1;
 
-    console.log(qty);
+  console.log(qty);
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -31,7 +33,7 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
-    props.history.push("/signin?redirect=shipping");
+    props.history.push("/sign-up?redirect=shipping");
   };
 
   return (

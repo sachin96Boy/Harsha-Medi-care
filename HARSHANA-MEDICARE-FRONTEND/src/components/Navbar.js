@@ -15,6 +15,11 @@ function Navbar() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
+  console.log(userInfo);
+
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -76,11 +81,16 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && (
-            <Button buttonStyle="btn--outline" btnPath={`/sign-up`}>
-              SIGN UP
-            </Button>
+          {userInfo ? (
+            <Link to="#">{userInfo.email}</Link>
+          ) : (
+            button && (
+              <Button buttonStyle="btn--outline" btnPath={`/sign-up`}>
+                SIGN UP
+              </Button>
+            )
           )}
+
           {button && (
             <Button buttonStyle="btn--outline" btnPath={`/cart`}>
               Cart
